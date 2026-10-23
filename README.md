@@ -44,7 +44,7 @@ plain `/trader-scanner`:
 
 ```bash
 git clone https://github.com/Jakeschincariol/day-trader-skill.git
-cp -r day-trader-skill/trader-* ~/.claude/skills/
+cp -r day-trader-skill/.claude/skills/trader-* ~/.claude/skills/
 ```
 
 Project-local instead of global: copy the same folders into your repo's
@@ -126,21 +126,21 @@ All standard-library Python. The data tools read public endpoints and are
 polite about it.
 
 ```bash
-python3 trader-scanner/scan.py universe                                # ~5,900 US stocks, Nasdaq Trader
-python3 trader-scanner/scan.py daily                                   # pre-market setups, whole universe
-python3 trader-scanner/scan.py orb --at 10:15                          # opening-range breakouts so far
-python3 trader-news/news.py --tickers TSLA --hours 12                  # headlines, 8-Ks, today's move
-python3 trader-entry/entry.py check TSLA --setup orb                   # waiting / triggered / expired
-python3 trader-entry/entry.py watch TSLA --every 30                    # bar by bar until it triggers
-python3 trader-exit/exit.py plan --stop or-mid --target 1R --write     # -> trader/plan.json
-python3 trader-timemachine/timemachine.py run --write                  # 10,000 replays + the history
-python3 trader-budget/size.py --write                                  # -> trader/orders.json
-python3 trader-risk/check.py                                           # PASS / BLOCK per order
-python3 trader-broker/ticket.py show                                   # the tickets, READY or not
-python3 trader-alerts/alerts.py add --from-plan                        # stop, target, flat by close
-python3 trader-alerts/alerts.py check                                  # rings what hit, once
-python3 trader-analyst/facts.py TSLA                                   # quarters, growth, EPS
-python3 trader-pelosi/ptr.py index --member pelosi                     # her PTRs this year
+python3 .claude/skills/trader-scanner/scan.py universe                                # ~5,900 US stocks, Nasdaq Trader
+python3 .claude/skills/trader-scanner/scan.py daily                                   # pre-market setups, whole universe
+python3 .claude/skills/trader-scanner/scan.py orb --at 10:15                          # opening-range breakouts so far
+python3 .claude/skills/trader-news/news.py --tickers TSLA --hours 12                  # headlines, 8-Ks, today's move
+python3 .claude/skills/trader-entry/entry.py check TSLA --setup orb                   # waiting / triggered / expired
+python3 .claude/skills/trader-entry/entry.py watch TSLA --every 30                    # bar by bar until it triggers
+python3 .claude/skills/trader-exit/exit.py plan --stop or-mid --target 1R --write     # -> trader/plan.json
+python3 .claude/skills/trader-timemachine/timemachine.py run --write                  # 10,000 replays + the history
+python3 .claude/skills/trader-budget/size.py --write                                  # -> trader/orders.json
+python3 .claude/skills/trader-risk/check.py                                           # PASS / BLOCK per order
+python3 .claude/skills/trader-broker/ticket.py show                                   # the tickets, READY or not
+python3 .claude/skills/trader-alerts/alerts.py add --from-plan                        # stop, target, flat by close
+python3 .claude/skills/trader-alerts/alerts.py check                                  # rings what hit, once
+python3 .claude/skills/trader-analyst/facts.py TSLA                                   # quarters, growth, EPS
+python3 .claude/skills/trader-pelosi/ptr.py index --member pelosi                     # her PTRs this year
 ```
 
 ```bash
@@ -199,17 +199,18 @@ wash sales likely. Nothing here is tax advice.
 ## Files
 
 ```
-trader-scanner/     SKILL.md, scan.py
-trader-news/        SKILL.md, news.py
-trader-entry/       SKILL.md, entry.py
-trader-exit/        SKILL.md, exit.py
-trader-timemachine/ SKILL.md, timemachine.py
-trader-risk/        SKILL.md, check.py
-trader-budget/      SKILL.md, size.py, config.example.json, targets.example.json
-trader-broker/      SKILL.md, ticket.py, claude_desktop_config.example.json
-trader-alerts/      SKILL.md, alerts.py, alerts.example.json
-trader-analyst/     SKILL.md, facts.py, metrics.example.json
-trader-pelosi/      SKILL.md, ptr.py
+.claude/skills/
+  trader-scanner/     SKILL.md, scan.py
+  trader-news/        SKILL.md, news.py
+  trader-entry/       SKILL.md, entry.py
+  trader-exit/        SKILL.md, exit.py
+  trader-timemachine/ SKILL.md, timemachine.py
+  trader-risk/        SKILL.md, check.py
+  trader-budget/      SKILL.md, size.py, config.example.json, targets.example.json
+  trader-broker/      SKILL.md, ticket.py, claude_desktop_config.example.json
+  trader-alerts/      SKILL.md, alerts.py, alerts.example.json
+  trader-analyst/     SKILL.md, facts.py, metrics.example.json
+  trader-pelosi/      SKILL.md, ptr.py
 tests/              unittest suite + offline fixtures
 ```
 
